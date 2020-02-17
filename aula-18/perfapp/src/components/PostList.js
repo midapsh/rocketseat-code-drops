@@ -15,7 +15,7 @@ export default function PostList() {
     return (
         <>
             <ul>
-                {post.map(post => <strong key={post.id}>{post.title}</strong>)}
+                {post.map(post => <div key={post.id}>{post.title}</div>)}
             </ul>
         </>
     )
