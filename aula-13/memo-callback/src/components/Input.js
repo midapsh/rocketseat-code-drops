@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useContext, useRef, useEffect } from 'react';
 
+import FormContext from "./FormContext";
 // import { Container } from './styles';
 
-export default function Input() {
+export default function Input({ name }) {
+  const inputRef = useRef();
+  const { registerField } = useContext(FormContext);
+  
+  useEffect(() => {
+    if (inputRef.current) {
+      registerField(name, inputRef.current);
+    }
+
+  }, [name, registerField,]);
+
   return (
-    <input />
+    <input name={name} ref={inputRef} />
   );
 }
