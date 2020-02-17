@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 // import { Container } from './styles';
 
-export default function PostItem({ post }) {
+function PostItem({ post }) {
     return (
         <li>
             <strong>{post.title}</strong>
@@ -10,3 +10,5 @@ export default function PostItem({ post }) {
         </li>
     );
 }
+
+export default memo(PostItem);

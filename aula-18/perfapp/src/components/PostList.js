@@ -17,7 +17,7 @@ export default function PostList() {
 
     return (
         <>
-            <input onChange={e => setNewPost(e.target.value)} />
+            <input onChange={e => setNewPost(e.target.value)} value={newPost} />
 
             <ul>
                 {post.map(post => <PostItem key={post.id} post={post} />)}
