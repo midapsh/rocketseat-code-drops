@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 
 import FormContext from "./FormContext";
 
@@ -8,9 +8,13 @@ import FormContext from "./FormContext";
 export default function Form({ children }) {
     const [inputs, setInputs] = useState([]);
 
-    function registerField(name, ref) {
-        setInputs([...inputs, { name, ref }]);
-    }
+    const registerField = useCallback((name, ref) => {
+        // Maneira com spread
+        // setInputs([...inputs, { name, ref }]);
+
+        // Maneira utilizando dados antigos
+        setInputs(oldInputs => [...oldInputs, { name, ref }]);
+    }, [,]);
 
     return (
         <form>
